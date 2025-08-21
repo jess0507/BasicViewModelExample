@@ -1,12 +1,12 @@
 package com.id.basicviewmodelexample
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import kotlinx.coroutines.flow.MutableStateFlow
 
 class MainViewModel: ViewModel() {
-    val count = MutableStateFlow(0)
+    val count = MutableLiveData(0)
 
     fun increment() {
-        count.value += 1
+        count.value = (count.value?: 0).plus(1)
     }
 }
